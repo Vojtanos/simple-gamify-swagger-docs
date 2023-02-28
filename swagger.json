@@ -1,0 +1,1319 @@
+{
+    "paths": {
+      "/user/{user_id}": {
+        "get": {
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            },
+            "default": {
+              "$ref": "#/components/responses/DEFAULT_ERROR"
+            }
+          },
+          "tags": [
+            "users"
+          ]
+        },
+        "put": {
+          "responses": {
+            "422": {
+              "$ref": "#/components/responses/UNPROCESSABLE_ENTITY"
+            },
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            },
+            "default": {
+              "$ref": "#/components/responses/DEFAULT_ERROR"
+            }
+          },
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateUser"
+                }
+              }
+            }
+          },
+          "tags": [
+            "users"
+          ]
+        },
+        "delete": {
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DeleteUser"
+                  }
+                }
+              }
+            },
+            "default": {
+              "$ref": "#/components/responses/DEFAULT_ERROR"
+            }
+          },
+          "tags": [
+            "users"
+          ]
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "user_id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        ]
+      },
+      "/user": {
+        "get": {
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/User"
+                    }
+                  }
+                }
+              }
+            },
+            "default": {
+              "$ref": "#/components/responses/DEFAULT_ERROR"
+            }
+          },
+          "tags": [
+            "users"
+          ]
+        },
+        "post": {
+          "responses": {
+            "422": {
+              "$ref": "#/components/responses/UNPROCESSABLE_ENTITY"
+            },
+            "201": {
+              "description": "Created",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            },
+            "default": {
+              "$ref": "#/components/responses/DEFAULT_ERROR"
+            }
+          },
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "tags": [
+            "users"
+          ]
+        }
+      },
+      "/user/{user_id}/challenge": {
+        "get": {
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/UserChallenge"
+                    }
+                  }
+                }
+              }
+            },
+            "default": {
+              "$ref": "#/components/responses/DEFAULT_ERROR"
+            }
+          },
+          "tags": [
+            "users"
+          ]
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "user_id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        ]
+      },
+      "/user/{user_id}/challenge/{challenge_id}": {
+        "get": {
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/UserChallenge"
+                  }
+                }
+              }
+            },
+            "default": {
+              "$ref": "#/components/responses/DEFAULT_ERROR"
+            }
+          },
+          "tags": [
+            "users"
+          ]
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "challenge_id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          {
+            "in": "path",
+            "name": "user_id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        ]
+      },
+      "/user/{user_id}/point": {
+        "get": {
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/UserPoint"
+                    }
+                  }
+                }
+              }
+            },
+            "default": {
+              "$ref": "#/components/responses/DEFAULT_ERROR"
+            }
+          },
+          "tags": [
+            "users"
+          ]
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "user_id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        ]
+      },
+      "/user/{user_id}/point/{point_id}": {
+        "get": {
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/UserPoint"
+                  }
+                }
+              }
+            },
+            "default": {
+              "$ref": "#/components/responses/DEFAULT_ERROR"
+            }
+          },
+          "tags": [
+            "users"
+          ]
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "point_id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          {
+            "in": "path",
+            "name": "user_id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        ]
+      },
+      "/user/{user_id}/level/{option}": {
+        "get": {
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/UserCurrentLevel"
+                  }
+                }
+              }
+            },
+            "default": {
+              "$ref": "#/components/responses/DEFAULT_ERROR"
+            }
+          },
+          "tags": [
+            "users"
+          ]
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "option",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          {
+            "in": "path",
+            "name": "user_id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        ]
+      },
+      "/user/{user_id}/action": {
+        "get": {
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/UserAction"
+                    }
+                  }
+                }
+              }
+            },
+            "default": {
+              "$ref": "#/components/responses/DEFAULT_ERROR"
+            }
+          },
+          "tags": [
+            "users"
+          ]
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "user_id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        ]
+      },
+      "/user/{user_id}/action/{action_id}": {
+        "get": {
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/UserAction"
+                  }
+                }
+              }
+            },
+            "default": {
+              "$ref": "#/components/responses/DEFAULT_ERROR"
+            }
+          },
+          "tags": [
+            "users"
+          ]
+        },
+        "put": {
+          "responses": {
+            "422": {
+              "$ref": "#/components/responses/UNPROCESSABLE_ENTITY"
+            },
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/UserAction"
+                  }
+                }
+              }
+            },
+            "default": {
+              "$ref": "#/components/responses/DEFAULT_ERROR"
+            }
+          },
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateUserAction"
+                }
+              }
+            }
+          },
+          "tags": [
+            "users"
+          ]
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "action_id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          {
+            "in": "path",
+            "name": "user_id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        ]
+      },
+      "/leaderboard": {
+        "get": {
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Leaderboard"
+                    }
+                  }
+                }
+              }
+            },
+            "default": {
+              "$ref": "#/components/responses/DEFAULT_ERROR"
+            }
+          },
+          "tags": [
+            "leaderboards"
+          ]
+        }
+      },
+      "/leaderboard_points/{point_id}": {
+        "get": {
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/LeaderboardPoint"
+                    }
+                  }
+                }
+              }
+            },
+            "default": {
+              "$ref": "#/components/responses/DEFAULT_ERROR"
+            }
+          },
+          "tags": [
+            "leaderboards"
+          ]
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "point_id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        ]
+      },
+      "/leaderboard_actions/{action_id}/{belove_under}/{actions_done}": {
+        "get": {
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/LeaderboardActions"
+                    }
+                  }
+                }
+              }
+            },
+            "default": {
+              "$ref": "#/components/responses/DEFAULT_ERROR"
+            }
+          },
+          "tags": [
+            "leaderboards"
+          ]
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "actions_done",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          {
+            "in": "path",
+            "name": "belove_under",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          {
+            "in": "path",
+            "name": "action_id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        ]
+      },
+      "/challenge": {
+        "get": {
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/PlainChallenge"
+                    }
+                  }
+                }
+              }
+            },
+            "default": {
+              "$ref": "#/components/responses/DEFAULT_ERROR"
+            }
+          },
+          "tags": [
+            "challenges"
+          ]
+        }
+      },
+      "/challenge/{challenge_id}": {
+        "get": {
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/PlainChallenge"
+                  }
+                }
+              }
+            },
+            "default": {
+              "$ref": "#/components/responses/DEFAULT_ERROR"
+            }
+          },
+          "tags": [
+            "challenges"
+          ]
+        },
+        "put": {
+          "responses": {
+            "422": {
+              "$ref": "#/components/responses/UNPROCESSABLE_ENTITY"
+            },
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/PlainChallenge"
+                  }
+                }
+              }
+            },
+            "default": {
+              "$ref": "#/components/responses/DEFAULT_ERROR"
+            }
+          },
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlainChallenge"
+                }
+              }
+            }
+          },
+          "tags": [
+            "challenges"
+          ]
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "challenge_id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        ]
+      },
+      "/action": {
+        "get": {
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/PlainAction"
+                    }
+                  }
+                }
+              }
+            },
+            "default": {
+              "$ref": "#/components/responses/DEFAULT_ERROR"
+            }
+          },
+          "tags": [
+            "Actions"
+          ]
+        }
+      },
+      "/action/{action_id}": {
+        "get": {
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/PlainAction"
+                  }
+                }
+              }
+            },
+            "default": {
+              "$ref": "#/components/responses/DEFAULT_ERROR"
+            }
+          },
+          "tags": [
+            "Actions"
+          ]
+        },
+        "put": {
+          "responses": {
+            "422": {
+              "$ref": "#/components/responses/UNPROCESSABLE_ENTITY"
+            },
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/PlainAction"
+                  }
+                }
+              }
+            },
+            "default": {
+              "$ref": "#/components/responses/DEFAULT_ERROR"
+            }
+          },
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlainAction"
+                }
+              }
+            }
+          },
+          "tags": [
+            "Actions"
+          ]
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "action_id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        ]
+      },
+      "/level": {
+        "get": {
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/PlainLevel"
+                    }
+                  }
+                }
+              }
+            },
+            "default": {
+              "$ref": "#/components/responses/DEFAULT_ERROR"
+            }
+          },
+          "tags": [
+            "Levels"
+          ]
+        }
+      },
+      "/level/{level_id}": {
+        "get": {
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/PlainLevel"
+                  }
+                }
+              }
+            },
+            "default": {
+              "$ref": "#/components/responses/DEFAULT_ERROR"
+            }
+          },
+          "tags": [
+            "Levels"
+          ]
+        },
+        "put": {
+          "responses": {
+            "422": {
+              "$ref": "#/components/responses/UNPROCESSABLE_ENTITY"
+            },
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/PlainLevel"
+                  }
+                }
+              }
+            },
+            "default": {
+              "$ref": "#/components/responses/DEFAULT_ERROR"
+            }
+          },
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlainLevel"
+                }
+              }
+            }
+          },
+          "tags": [
+            "Levels"
+          ]
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "level_id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        ]
+      },
+      "/point": {
+        "get": {
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/PlainPoint"
+                    }
+                  }
+                }
+              }
+            },
+            "default": {
+              "$ref": "#/components/responses/DEFAULT_ERROR"
+            }
+          },
+          "tags": [
+            "Points"
+          ]
+        }
+      },
+      "/point/{point_id}": {
+        "get": {
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/PlainPoint"
+                  }
+                }
+              }
+            },
+            "default": {
+              "$ref": "#/components/responses/DEFAULT_ERROR"
+            }
+          },
+          "tags": [
+            "Points"
+          ]
+        },
+        "put": {
+          "responses": {
+            "422": {
+              "$ref": "#/components/responses/UNPROCESSABLE_ENTITY"
+            },
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/PlainPoint"
+                  }
+                }
+              }
+            },
+            "default": {
+              "$ref": "#/components/responses/DEFAULT_ERROR"
+            }
+          },
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlainPoint"
+                }
+              }
+            }
+          },
+          "tags": [
+            "Points"
+          ]
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "point_id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        ]
+      }
+    },
+    "info": {
+      "title": "SIMPLE-GAMIFY REST API",
+      "version": "v1"
+    },
+    "tags": [
+      {
+        "name": "users",
+        "description": "Operations on users"
+      },
+      {
+        "name": "leaderboards",
+        "description": "Users stats"
+      },
+      {
+        "name": "challenges",
+        "description": "Operations on challenges"
+      },
+      {
+        "name": "Actions",
+        "description": "Operations on actions"
+      },
+      {
+        "name": "Levels",
+        "description": "Operations on levels"
+      },
+      {
+        "name": "Points",
+        "description": "Operations on points"
+      }
+    ],
+    "openapi": "3.0.3",
+    "components": {
+      "schemas": {
+        "Error": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string",
+              "description": "Error name"
+            },
+            "errors": {
+              "type": "object",
+              "description": "Errors"
+            },
+            "code": {
+              "type": "integer",
+              "description": "Error code"
+            },
+            "message": {
+              "type": "string",
+              "description": "Error message"
+            }
+          }
+        },
+        "PaginationMetadata": {
+          "type": "object",
+          "properties": {
+            "total": {
+              "type": "integer"
+            },
+            "total_pages": {
+              "type": "integer"
+            },
+            "first_page": {
+              "type": "integer"
+            },
+            "last_page": {
+              "type": "integer"
+            },
+            "page": {
+              "type": "integer"
+            },
+            "previous_page": {
+              "type": "integer"
+            },
+            "next_page": {
+              "type": "integer"
+            }
+          }
+        },
+        "User": {
+          "type": "object",
+          "properties": {
+            "username": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            },
+            "custom": {
+              "type": "object"
+            },
+            "id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ]
+        },
+        "UpdateUser": {
+          "type": "object",
+          "properties": {
+            "username": {
+              "type": "string"
+            },
+            "custom": {
+              "type": "object"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "PlainUser": {
+          "type": "object",
+          "properties": {
+            "username": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            },
+            "custom": {
+              "type": "object"
+            },
+            "id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ]
+        },
+        "DeleteUser": {
+          "type": "object",
+          "properties": {
+            "user": {
+              "$ref": "#/components/schemas/PlainUser"
+            },
+            "message": {
+              "type": "string"
+            }
+          }
+        },
+        "PlainChallenge": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "custom": {
+              "type": "object"
+            },
+            "description": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string",
+              "readOnly": true
+            }
+          },
+          "required": [
+            "id"
+          ]
+        },
+        "UserChallenge": {
+          "type": "object",
+          "properties": {
+            "challenge": {
+              "$ref": "#/components/schemas/PlainChallenge"
+            },
+            "done": {
+              "type": "boolean"
+            }
+          }
+        },
+        "PlainPoint": {
+          "type": "object",
+          "properties": {
+            "custom": {
+              "type": "object"
+            },
+            "description": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string",
+              "readOnly": true
+            }
+          },
+          "required": [
+            "id"
+          ]
+        },
+        "UserPoint": {
+          "type": "object",
+          "properties": {
+            "point": {
+              "$ref": "#/components/schemas/PlainPoint"
+            },
+            "points_earned": {
+              "type": "integer"
+            }
+          }
+        },
+        "PlainPointLevel": {
+          "type": "object",
+          "properties": {
+            "point": {
+              "$ref": "#/components/schemas/PlainPoint"
+            },
+            "points_required": {
+              "type": "integer"
+            }
+          }
+        },
+        "UserCurrentLevel": {
+          "type": "object",
+          "properties": {
+            "level_points_required": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/PlainPointLevel"
+              }
+            },
+            "custom": {
+              "type": "object"
+            },
+            "level_number": {
+              "type": "integer"
+            },
+            "id": {
+              "type": "string",
+              "readOnly": true
+            }
+          },
+          "required": [
+            "id"
+          ]
+        },
+        "PlainAction": {
+          "type": "object",
+          "properties": {
+            "custom": {
+              "type": "object"
+            },
+            "description": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string",
+              "readOnly": true
+            }
+          },
+          "required": [
+            "id"
+          ]
+        },
+        "UserAction": {
+          "type": "object",
+          "properties": {
+            "done_rep": {
+              "type": "integer"
+            },
+            "action": {
+              "$ref": "#/components/schemas/PlainAction"
+            }
+          }
+        },
+        "UpdateUserAction": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "integer"
+            }
+          }
+        },
+        "PlainLevel": {
+          "type": "object",
+          "properties": {
+            "custom": {
+              "type": "object"
+            },
+            "level_number": {
+              "type": "integer"
+            },
+            "id": {
+              "type": "string",
+              "readOnly": true
+            }
+          },
+          "required": [
+            "id"
+          ]
+        },
+        "Leaderboard": {
+          "type": "object",
+          "properties": {
+            "username": {
+              "type": "string"
+            },
+            "user_challenges": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/UserChallenge"
+              }
+            },
+            "level": {
+              "$ref": "#/components/schemas/PlainLevel"
+            },
+            "id": {
+              "type": "string"
+            },
+            "custom": {
+              "type": "object"
+            },
+            "user_actions": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/UserAction"
+              }
+            },
+            "user_points": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/UserPoint"
+              }
+            },
+            "email": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ]
+        },
+        "LeaderboardPoint": {
+          "type": "object",
+          "properties": {
+            "points_earned": {
+              "type": "integer"
+            },
+            "user": {
+              "$ref": "#/components/schemas/PlainUser"
+            }
+          }
+        },
+        "LeaderboardActions": {
+          "type": "object",
+          "properties": {
+            "done_rep": {
+              "type": "integer"
+            },
+            "user": {
+              "$ref": "#/components/schemas/PlainUser"
+            }
+          }
+        }
+      },
+      "responses": {
+        "DEFAULT_ERROR": {
+          "description": "Default error response",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Error"
+              }
+            }
+          }
+        },
+        "UNPROCESSABLE_ENTITY": {
+          "description": "Unprocessable Entity",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Error"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
